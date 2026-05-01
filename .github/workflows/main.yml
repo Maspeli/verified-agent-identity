@@ -25,13 +25,15 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Step 1 - Install ClawHub skill
-        run: npm install -g clawhub && clawhub install verified-agent-identity
+      # 🔥 FIX: hanya install clawhub tanpa skill
+      - name: Install ClawHub CLI
+        run: npm install -g clawhub
 
       - name: Install script dependencies
         run: |
           cd scripts
           npm install
+
       - name: Step 2 - Create new Ethereum Identity
         run: node scripts/createNewEthereumIdentity.js
 
